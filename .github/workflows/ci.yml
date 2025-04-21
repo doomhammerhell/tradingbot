@@ -1,0 +1,35 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake clang-format clang-tidy libcurl4-openssl-dev libssl-dev libjsoncpp-dev libeigen3-dev libgsl-dev
+      
+      - name: Build
+        run: |
+          cmake -B build -DBUILD_TESTS=ON
+          cmake --build build
+      
+      - name: Run tests
+        run: |
+          cd build
+          ctest --output-on-failure
+      
+      - name: Format check
+        run: |
+          find . -name "*.cpp" -o -name "*.hpp" | xargs clang-format -i
+          git diff --exit-code
+      
+      - name: Static analysis
+        run: |
+          find . -name "*.cpp" -o -name "*.hpp" | xargs clang-tidy 

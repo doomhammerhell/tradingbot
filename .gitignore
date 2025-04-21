@@ -1,0 +1,170 @@
+# Build directories
+build/
+out/
+bin/
+lib/
+*.exe
+*.out
+*.app
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.cmake
+CTestTestfile.cmake
+Testing/
+install_manifest.txt
+compile_commands.json
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.history/
+
+# Dependencies
+external/
+deps/
+third_party/
+
+# Documentation
+docs/html/
+docs/latex/
+docs/rtf/
+docs/man/
+docs/xml/
+docs/docbook/
+
+# Generated files
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+*.dll
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+*.db
+
+# Testing
+*.gcda
+*.gcno
+*.gcov
+coverage/
+test-results/
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
+*.orig
+*.rej
+*.patch
+
+# Environment files
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+
+# Configuration files with sensitive data
+config/*.json
+!config/*.example.json
+config/*.yaml
+!config/*.example.yaml
+config/*.yml
+!config/*.example.yml
+
+# Model files and data
+models/
+data/
+*.model
+*.weights
+*.h5
+*.pkl
+*.joblib
+*.onnx
+
+# Cache directories
+.cache/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Coverage reports
+coverage/
+*.gcov
+*.gcda
+*.gcno
+
+# Profiling data
+*.prof
+*.perf
+*.flamegraph
+
+# Backup files
+*~
+*.bak
+*.swp
+*.swo
+*.orig
+*.rej
+
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Project specific
+tradingbot
+tradingbot_tests
+*.dSYM/
+*.pdb
+*.idb
+*.ilk
+*.exp
+*.lib
+*.manifest
+*.res
+*.rc
+*.def
+*.dll
+*.exe
+*.so
+*.dylib
+*.a
+*.lib
+*.dll.a
+*.dll.lib
+*.exp
+*.ilk
+*.pdb
+*.manifest
+*.rc
+*.res
+*.def
+*.dll
+*.exe
+*.so
+*.dylib
+*.a
+*.lib
+*.dll.a
+*.dll.lib

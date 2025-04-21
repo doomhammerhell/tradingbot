@@ -1,0 +1,47 @@
+groups:
+  - name: tradingbot_alerts
+    rules:
+      - alert: LowWinRate
+        expr: tradingbot_win_rate < 0.5
+        for: 1h
+        labels:
+          severity: critical
+        annotations:
+          summary: "Trading bot win rate is below 50%"
+          description: "The trading bot's win rate has been below 50% for the last hour"
+
+      - alert: HighLosses
+        expr: tradingbot_profit_loss < -1000
+        for: 30m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Trading bot losses exceed $1000"
+          description: "The trading bot has accumulated losses exceeding $1000 in the last 30 minutes"
+
+      - alert: HighTradeVolume
+        expr: rate(tradingbot_trades_total[5m]) > 10
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High trading volume detected"
+          description: "The trading bot is executing more than 10 trades per minute"
+
+      - alert: PortfolioValueDrop
+        expr: (tradingbot_portfolio_value - tradingbot_portfolio_value offset 1h) / tradingbot_portfolio_value offset 1h < -0.1
+        for: 15m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Significant portfolio value drop"
+          description: "Portfolio value has dropped by more than 10% in the last hour"
+
+      - alert: NoTrades
+        expr: rate(tradingbot_trades_total[1h]) == 0
+        for: 1h
+        labels:
+          severity: warning
+        annotations:
+          summary: "No trades executed in the last hour"
+          description: "The trading bot has not executed any trades in the last hour" 

@@ -1,23 +1,77 @@
-# TradingBot
+# Trading Bot
 
-A C++ stock market algorithmic trading bot
+A sophisticated algorithmic trading platform written in C++ that provides tools for backtesting and optimizing trading strategies using various technical indicators and optimization algorithms.
 
-Calculates Technical indicators from stock market, will eventually make automatic buy/sell/hold decisions.
+## Features
 
-You will need:
+- Multiple trading strategies:
+  - Mean Reversion
+  - Momentum
+  - Bollinger Bands
+  - RSI (Relative Strength Index)
+- Optimization algorithms:
+  - Genetic Algorithm
+  - Hill Climbing
+- Parallel processing support
+- Configurable fitness functions
+- Comprehensive performance metrics
+- JSON-based configuration and results
 
-Libcurl: https://curl.haxx.se/docs/install.html
+## Quick Start
 
-Jsoncpp: https://github.com/open-source-parsers/jsoncpp
+### Prerequisites
 
-To run this on your machine.
+- C++17 or later
+- OpenMP
+- nlohmann/json
+- CMake 3.10 or later
 
-You'll also need to at least have some C++ knowledge to edit the code for your needs.
+### Installation
 
-To compile and run:
+```bash
+# Clone the repository
+git clone https://github.com/doomhammerhell/tradingbot.git
+cd tradingbot
 
-Put all the files from this repo into one folder, and have the above mentioned dependencies installed.
+# Create build directory
+mkdir build && cd build
 
-Next, run this in your terminal:
+# Configure and build
+cmake -DENABLE_OPTIMIZATION=ON ..
+make
+```
 
-g++ *.cpp -std=c++11 -ljsoncpp -lcurl -o exa.out && ./exa.out -I/usr/local/Cellar/boost/1.67.0_1/include/boost/
+### Usage
+
+```bash
+# Basic optimization
+./tradingbot_optimize data.csv
+
+# With specific strategy and algorithm
+./tradingbot_optimize --strategy=rsi --algorithm=hill_climbing data.csv
+
+# With custom weights
+./tradingbot_optimize --weights=profit:0.6,sharpe:0.3,drawdown:0.1 data.csv
+```
+
+## Documentation
+
+For detailed documentation, please see the [docs](docs/README.md) directory.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Author
+
+- **Mayckon Giovani**
+  - Email: doomhammerhell@gmail.com
+  - GitHub: [@doomhammerhell](https://github.com/doomhammerhell)
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a new Pull Request

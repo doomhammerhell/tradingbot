@@ -1,0 +1,23 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: 'tradingbot'
+    static_configs:
+      - targets: ['tradingbot:8080']  # Update port if different
+    metrics_path: '/metrics'
+    scheme: 'http'
+
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'redis'
+    static_configs:
+      - targets: ['redis:6379']
+    metrics_path: '/metrics'
+    scheme: 'http'
+
+rule_files:
+  - 'rules/*.yml' 
